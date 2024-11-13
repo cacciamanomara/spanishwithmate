@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Homemade+Apple&family=Neucha&family=Pavanam&display=swap');
+
+
+/*    HEADER   */
+
+
+
+header img{width: 1512px;
+height: 600px;
+}
+header nav ul {list-style:none;}
+header nav ul a {text-decoration: none;
+color: #0A2436;
+
+}
+main div img {width: 100%;
+}
+
+header nav ul li {display:inline-block;
+margin:3px 3px 3px 3px;
+padding: 5px;
+margin-bottom: 5px;
+margin-top: 5px;
+margin-block-end: 5px;
+background-color: hwb(0 100% 0%);
+}
+
+
+/*    MAIN   */
+
+
+body 
+
+{
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Handlee", cursive;
+font-weight: 400;
+font-style: normal; 
+}
+
+
+h1 
+
+{color: #0A2436;
+    text-align: center;
+    margin-top: 50px;      /* margen arriba */
+    margin-bottom: 30px; /* Espacio debajo del h1 */
+    background-color: gainsboro;
+    font-variant: small-caps slashed-zero;
+}
+
+h2 
+
+{color: #214A55;
+    text-align:center;
+    margin-top: 50px;    /* Espacio arriba del h2 */
+    margin-bottom: 10px; /* Espacio debajo del h2 */
+    font-variant: small-caps slashed-zero;
+}
+
+h3 
+
+{color: #976F25;
+    text-align:center;
+    margin-top: 40px;    /* Espacio arriba del h3 */
+    margin-bottom: 45px; /* Espacio debajo del h3 */
+    font-variant: small-caps slashed-zero;
+}
+
+p 
+
+{color: #1F3136;
+    text-align:center;
+    margin-top: 50px;       
+    margin-bottom: 100px; /* Espacio debajo del párrafo */
+        max-width: 800px; /* Define el ancho máximo del contenedor */
+        margin: 0 auto; /* Centra el contenedor en la página */
+        padding: 0 20px; /* Añade algo de espacio a los lados */
+    }
+
+    
+
+.cinco 
+
+{width: 550px;
+height: 200px;
+
+}
+
+
+/* HEERO*/
+
+/* Fondo y espaciado de la sección */
+.hero-section {
+    background-color: #f8f8f8; /* Fondo claro */
+    padding: 60px 20px; /* Espaciado alrededor */
+    text-align: center;
+}
+
+/* Contenedor centrado */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo del título principal */
+.hero-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    background-color: #f8f8f8;
+    
+}
+
+/* Estilo del subtítulo */
+.hero-subtitle {
+    font-size: 1.8em;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Texto destacado */
+.hero-highlight {
+    font-size: 1.4em;
+    color: #0073e6; /* Color de acento */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-card {
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 15px; /* Bordes redondeados */
+    display: inline-block;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 350px; /* Aumentamos el tamaño máximo del contenedor */
+    text-align: center;
+}
+
+/* Estilo de la imagen de 5 estrellas */
+.hero-stars {
+    width: 100%; /* Hacemos que la imagen ocupe el 100% del ancho de la tarjeta */
+    height: auto; /* Mantenemos la proporción original de la imagen */
+    display: block;
+    margin: 0 auto; /* Centrado de la imagen */
+    max-height: 250px; /* Limite de altura para evitar que sea excesivamente grande */
+}
+
+
+
+
+
+.container 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.agendatuclase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.agendatuclase img {
+    max-width: 500px; /* Limita el ancho de la imagen */
+    width: 100%; /* Para hacerla responsiva */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 15px; /* Espacio entre la imagen y el botón */
+    border-radius: 50%; /* Esto hace la imagen ovalada */
+    object-fit: cover; /* Asegura que la imagen se recorte correctamente y mantenga la forma */
+    display: block; /* Elimina el espacio en blanco alrededor de la imagen */
+    margin: 10px auto; /* Centra la imagen dentro de su contenedor */
+}
+
+#botonagenda {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#botonagenda:hover {
+    background-color: #357ab8;
+}
+
+
+.cardsection {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0; /* Eliminar cualquier padding adicional */
+}
+
+.card {
+    display: grid;
+    justify-items: center;
+    margin-top: 50px;
+    width: 650px;
+    height: 240px;
+    background-color: #cccdbd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 25px #4f4f59;
+    padding: 0; /* Eliminar cualquier padding en la tarjeta */
+}
+
+/* TARJETITAS INDEX*/
+
+/* Sección principal de tarjetas */
+.tarjetas-diferencia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Tarjeta grande */
+.tarjeta-grande {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Título */
+.titulo-eleccion {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Contenedor de tarjetas pequeñas */
+.tarjetas-eleccion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Tarjetas individuales para cada ítem */
+.item-tarjeta {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    font-size: 1em;
+    color: #444;
+    text-align: center;
+    max-width: 250px;
+    flex: 1 1 220px;
+}
+
+/* Responsivo para dispositivos pequeños */
+@media (max-width: 600px) {
+    .tarjeta-grande, .item-tarjeta {
+        width: 90%;
+    }
+}
+
+
+/*CONTACTO*/
+
+
+.contact-img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 5px;
+    cursor: pointer; /* El cursor cambiará a puntero al pasar por encima */
+    box-shadow: 0px 0px 10px rgb(90, 91, 152);
+    transition: transform 0.2s ease; /* Efecto de transición suave */
+}
+
+.contact-img:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+input 
+
+{margin: 10px;
+padding: 5px;
+
+}
+
+.nivel-clases {
+    list-style-type: disc; /* Muestra las bolitas */
+    padding-left: 20px;    /* Espacio entre las bolitas y el texto */
+    margin: 0;             /* Elimina márgenes adicionales de la lista */
+}
+
+/* Estilo para cada item de la lista */
+.nivel-clases li {
+    display: flex;
+    align-items: center;   /* Alinea verticalmente los elementos */
+    margin-bottom: 10px;    /* Espacio entre los elementos */
+}
+
+/* Estilo para los títulos dentro de los ítems de la lista */
+.nivel-clases .nivel {
+    font-weight: bold;    /* Hace que la palabra sea negrita */
+    text-decoration: underline;  /* Subraya la palabra */
+    color: #2C3E50;      /* Color personalizado para las palabras */
+    margin-right: 10px;  /* Añade espacio después de la palabra */
+}
+
+.resenas  
+{
+border: solid 50px gainsboro;
+margin: 50px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;}
+
+
+.sobremi 
+
+{display: flex;
+    justify-content:space-around;
+margin-top: 60px;
+margin-bottom: 100px;}
+
+
+.sobremi__img 
+{
+width: 100px;
+height: 100px;
+}
+
+.tabla 
+
+
+{display: flex;
+    justify-content:space-between;
+    background-color: whitesmoke;
+}
+
+
+
+/* CONTACTO FORMULARIO */
+
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    background-color: #f4f4f9;
+    padding: 20px;
+
+    }
+
+
+.tabla {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.tabla label {
+    font-weight: bold;
+    color: #333;
+}
+
+.tabla input,
+.tabla select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.tabla input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.tabla input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/*FORMACION*/
+
+/* Estilo para la sección de formación */
+.formacion {
+    background-color: #f8f9fa; /* Fondo claro para darle un contraste suave */
+    padding: 30px;
+    border-radius: 15px; /* Bordes redondeados para el efecto de tarjeta */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+    margin: 20px auto;
+    max-width: 800px; /* Limita el ancho de la tarjeta */
+    text-align: center; /* Centra el contenido */
+}
+
+/* Estilo para el título */
+.formacion h2 {
+    font-size: 2em; /* Tamaño grande para resaltar el título */
+    font-weight: 700;
+    color: #333; /* Color oscuro para el texto */
+    margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+/* Estilo para el párrafo */
+.formacion p {
+    font-size: 1.2em; /* Fuente un poco más grande para mayor legibilidad */
+    color: #555; /* Color suave para el texto */
+    line-height: 1.6; /* Aumenta el espacio entre las líneas para facilitar la lectura */
+    margin-bottom: 20px; /* Espacio al final del párrafo */
+}
+
+
+
+/*    FOOTER   */
+
+
+
+footer 
+{
+    margin-top: 40px;
+    display: flex;
+    justify-content:space-between;
+    background-color: #f8f8f8;
+}
+
+.insta{
+    align-content:end;
+}
+.in img {
+    width: 30px;
+    height: 30px;
+}
+
+.banner-footer img {
+    width: 270px;
+    height: 250px;
+}
+
+
+.insta img {
+    width: 30px;
+    height: 30px;
+    padding-bottom: 1px;
+}
+
+
+footer iframe {
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    padding-top: 50%;
+    
+}
+
+
