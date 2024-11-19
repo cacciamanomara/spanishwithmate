@@ -199,24 +199,62 @@ height: 200px;
 }
 
 
+/* Contenedor principal que contiene las tarjetas */
 .cardsection {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se acomoden en filas */
     width: 100%;
-    padding: 0; /* Eliminar cualquier padding adicional */
+    padding: 20px; /* Un poco de espacio alrededor de las tarjetas */
 }
 
+/* Estilo para cada tarjeta */
 .card {
     display: grid;
     justify-items: center;
     margin-top: 50px;
-    width: 650px;
-    height: 450px;
+    width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+    max-width: 650px; /* La tarjeta no puede ser más ancha que 650px */
+    height: auto; /* La altura será proporcional al contenido */
     background-color: #cccdbd;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 25px #4f4f59;
-    padding: 0; /* Eliminar cualquier padding en la tarjeta */
+    padding: 0;
+}
+
+/* Estilo para la imagen dentro de la tarjeta */
+.card img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: auto; /* La altura es proporcional al ancho */
+    object-fit: cover; /* Mantiene la imagen cubriendo el área sin distorsionar */
+}
+
+/* Responsive: Ajustes para pantallas medianas (tabletas) */
+@media (max-width: 768px) {
+    .cardsection {
+        justify-content: space-around; /* Espacio entre las tarjetas */
+        gap: 20px; /* Espaciado entre las tarjetas */
+    }
+
+    .card {
+        width: 90%; /* Las tarjetas ocupan el 90% del ancho en pantallas más pequeñas */
+        max-width: 500px; /* Limita el tamaño máximo de las tarjetas */
+    }
+}
+
+/* Responsive: Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .cardsection {
+        justify-content: center; /* Las tarjetas se centran en pantallas pequeñas */
+        gap: 10px; /* Menos espacio entre las tarjetas */
+    }
+
+    .card {
+        width: 100%; /* Las tarjetas ocupan el 100% del ancho en móviles */
+        max-width: 350px; /* Limita el tamaño máximo de las tarjetas */
+        margin-top: 20px; /* Menos margen superior */
+    }
 }
 
 /* TARJETITAS INDEX*/
@@ -325,27 +363,103 @@ padding: 5px;
     margin-right: 10px;  /* Añade espacio después de la palabra */
 }
 
-.resenas  
-{
-border: solid 50px gainsboro;
-margin: 50px;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;}
+.resenas {
+    border: solid 10px gainsboro;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto */
+    grid-template-rows: auto;
+    gap: 10px;
+}
 
+.resenas .items img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-.sobremi 
+@media (max-width: 1024px) {
+    .resenas {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas para pantallas medianas */
+    }
+}
 
-{display: flex;
-    justify-content:space-around;
-margin-top: 60px;
-margin-bottom: 100px;}
+@media (max-width: 600px) {
+    .resenas {
+        grid-template-columns: 1fr; /* 1 columna para móviles */
+    }
+}
 
+.sobremi {
+    display: flex;
+    justify-content: center; /* Centra todo el contenido */
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    gap: 20px;
+}
 
-.sobremi__img 
-{
-width: 100px;
-height: 100px;
+.sobremi__contenido {
+    max-width: 800px; /* Limita el ancho del contenido */
+    text-align: justify; /* Alinea el texto a la izquierda, con justificación */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Asegura que el contenido esté centrado */
+}
+
+.sobremi__titulo {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sobremi__texto {
+    display: flex;
+    align-items: center; /* Alinea la imagen y el texto */
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    margin-top: 20px;
+    justify-content: center; /* Centra la imagen y el texto */
+}
+
+.sobremi__img {
+    width: 120px; /* Tamaño moderado para la imagen */
+    height: 120px;
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    object-fit: cover;
+}
+
+.sobremi__p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Responsive: Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .sobremi__contenido {
+        padding: 10px;
+    }
+
+    .sobremi__texto {
+        flex-direction: column; /* Apila los elementos en una columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos en la columna */
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+
+    .sobremi__img {
+        margin-bottom: 15px; /* Añade un pequeño espacio debajo de la imagen */
+        align-self: center; /* Asegura que la imagen esté centrada */
+    }
+
+    .sobremi__titulo {
+        font-size: 1.5rem;
+    }
+
+    .sobremi__p {
+        font-size: 0.9rem;
+    }
 }
 
 .tabla 
@@ -366,12 +480,9 @@ height: 100px;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-
     background-color: #f4f4f9;
     padding: 20px;
-
-    }
-
+}
 
 .tabla {
     max-width: 600px;
@@ -399,6 +510,7 @@ height: 100px;
     font-size: 14px;
 }
 
+/* Estilos para el botón de enviar */
 .tabla input[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -412,6 +524,23 @@ height: 100px;
 
 .tabla input[type="submit"]:hover {
     background-color: #45a049;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .tabla {
+        padding: 20px;  /* Menos padding en pantallas más pequeñas */
+        box-shadow: none;  /* Menos sombra para pantallas pequeñas */
+    }
+
+    .tabla input,
+    .tabla select {
+        font-size: 16px;  /* Aumentar el tamaño de fuente en pantallas pequeñas para mejor legibilidad */
+    }
+
+    .formulario {
+        padding: 10px;  /* Menos padding en el formulario para adaptarse a pantallas pequeñas */
+    }
 }
 
 /*FORMACION*/
@@ -447,43 +576,139 @@ height: 100px;
 
 /*    FOOTER   */
 
-
-
-footer 
-{
+footer {
     margin-top: 40px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+    align-items: flex-start; 
     background-color: #f8f8f8;
+    padding: 20px;
+    position: relative;
+    flex-wrap: wrap;
 }
 
-.insta{
-    align-content:end;
+.insta {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
 }
-.in img {
-    width: 30px;
-    height: 30px;
-}
-
-.banner-footer img {
-    width: 270px;
-    height: 250px;
-}
-
 
 .insta img {
     width: 30px;
     height: 30px;
-    padding-bottom: 1px;
 }
 
+.banner-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-left: 250px;  /* Aumentamos el margen izquierdo para desplazar más el logo a la derecha */
+    margin-right: 50px;  /* Márgenes de la derecha para balancear */
+}
+
+.banner-footer img {
+    width: 270px;
+    height: auto;
+}
 
 footer iframe {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
     border-radius: 8px;
-    padding-top: 50%;
-    
+    padding-top: 10px;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 1024px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .insta {
+        position: relative;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .banner-footer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    footer iframe {
+        margin-top: 20px;
+    }
 }
 
 
+
+
+
+/** PREGUNTAS FRECUENTES **/
+
+faq {
+    margin-bottom: 15px;
+    text-align: center; /* Centra todo dentro de cada pregunta */
+}
+
+.faq-toggle {
+    display: none; /* Oculta el checkbox por defecto */
+}
+
+.faq-question {
+    cursor: pointer;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 25px; /* Bordes redondeados */
+    font-weight: bold;
+    text-align: center; /* Centra el texto */
+    border: 2px solid #4c78af; /* Borde verde */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Para asegurar que ocupe todo el ancho disponible */
+}
+
+/* Estilo para el checkbox y su marcador visual */
+.faq-question::before {
+    content: "➤"; /* Añadimos un ícono visual como marcador */
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #354f5d;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+.faq-question:hover {
+    background-color: #e0e0e0;
+    border-color: rgb(71, 71, 133);
+}
+
+/* Estilo para las respuestas */
+.faq-answer {
+    display: none; /* Oculta las respuestas por defecto */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mostrar la respuesta cuando el checkbox esté marcado */
+.faq-toggle:checked + .faq-question + .faq-answer {
+    display: block;
+}
+
+/* Cambia el ícono cuando la pregunta está seleccionada */
+.faq-toggle:checked + .faq-question::before {
+    transform: translateY(-50%) rotate(90deg); /* Gira el ícono para mostrar el estado expandido */
+}
