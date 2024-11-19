@@ -451,6 +451,8 @@ padding: 5px;
     .sobremi__img {
         margin-bottom: 15px; /* Añade un pequeño espacio debajo de la imagen */
         align-self: center; /* Asegura que la imagen esté centrada */
+        margin-left: 20px;
+        margin-bottom: 20px;
     }
 
     .sobremi__titulo {
@@ -577,27 +579,25 @@ padding: 5px;
 /*    FOOTER   */
 
 footer {
-    margin-top: 40px;
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 15px 40px; /* Incremento ligero del padding */
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
-    background-color: #f8f8f8;
-    padding: 20px;
-    position: relative;
-    flex-wrap: wrap;
+    align-items: center;
+    height: 100px; /* Altura ligeramente aumentada */
+    box-sizing: border-box;
+    margin-top: 40px;
 }
 
 .insta {
     display: flex;
-    gap: 10px;
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
+    gap: 15px;
 }
 
 .insta img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .banner-footer {
@@ -605,53 +605,53 @@ footer {
     justify-content: center;
     align-items: center;
     flex: 1;
-    margin-left: 250px;  /* Aumentamos el margen izquierdo para desplazar más el logo a la derecha */
-    margin-right: 50px;  /* Márgenes de la derecha para balancear */
 }
 
 .banner-footer img {
-    width: 270px;
+    width: 200px; /* Logo ajustado al tamaño del banner horizontal */
     height: auto;
 }
 
 footer iframe {
-    width: 200px;
-    height: 250px;
-    border-radius: 8px;
-    padding-top: 10px;
+    width: 150px;
+    height: 80px;
+    border-radius: 4px;
 }
 
 /* Responsivo para pantallas pequeñas */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     footer {
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        height: auto;
+        gap: 10px;
+        padding: 20px;
     }
 
     .insta {
-        position: relative;
         justify-content: center;
-        margin-bottom: 20px;
     }
 
-    .banner-footer {
-        margin-left: 0;
-        margin-right: 0;
+    .insta img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .banner-footer img {
+        width: 160px;
     }
 
     footer iframe {
-        margin-top: 20px;
+        width: 120px;
+        height: 60px;
+        margin-top: 5px;
     }
 }
 
 
+/** preguntas frecuentes **/
 
-
-
-/** PREGUNTAS FRECUENTES **/
-
-faq {
+.faq {
     margin-bottom: 15px;
     text-align: center; /* Centra todo dentro de cada pregunta */
 }
@@ -668,7 +668,7 @@ faq {
     border-radius: 25px; /* Bordes redondeados */
     font-weight: bold;
     text-align: center; /* Centra el texto */
-    border: 2px solid #4c78af; /* Borde verde */
+    border: 2px solid rgb(119, 119, 173); /* Borde verde */
     transition: background-color 0.3s ease, border-color 0.3s ease;
     position: relative;
     display: inline-block;
@@ -683,14 +683,14 @@ faq {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #354f5d;
+    color: #536e86;
     transition: transform 0.3s ease;
 }
 
 /* Efecto al pasar el ratón */
 .faq-question:hover {
     background-color: #e0e0e0;
-    border-color: rgb(71, 71, 133);
+    border-color: rgb(74, 74, 152);
 }
 
 /* Estilo para las respuestas */
@@ -712,3 +712,5 @@ faq {
 .faq-toggle:checked + .faq-question::before {
     transform: translateY(-50%) rotate(90deg); /* Gira el ícono para mostrar el estado expandido */
 }
+
+
