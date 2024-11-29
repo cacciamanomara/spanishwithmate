@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-  color: #976F25;
+  color: #74744D;
   margin: 40px 0 45px;
 }
 
@@ -39,6 +39,76 @@ p {
   color: #1F3136;
   max-width: 800px;
   padding: 5px 20px;
+}
+
+.navbar {
+  background-color: #E2DED7;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar .nav-link {
+  color: #4A62AB;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: #E4DFD8;
+  background-color: #4A62AB;
+}
+.navbar .nav-link.active {
+  color: #E4DFD8;
+  background-color: #4A62AB;
+  border-bottom: 2px solid #E4DFD8;
+}
+.navbar .dropdown-menu {
+  background-color: #E2DED7;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar .dropdown-menu .dropdown-item {
+  color: #4A62AB;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #4A62AB;
+  color: #E4DFD8;
+}
+.navbar .navbar-toggler {
+  background-color: #DCD7CF;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: none;
+  background-color: #4A62AB;
+  width: 24px;
+  height: 2px;
+  display: inline-block;
+  position: relative;
+}
+.navbar .navbar-toggler .navbar-toggler-icon::before, .navbar .navbar-toggler .navbar-toggler-icon::after {
+  content: "";
+  background-color: #4A62AB;
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+.navbar .navbar-toggler .navbar-toggler-icon::before {
+  top: -8px;
+}
+.navbar .navbar-toggler .navbar-toggler-icon::after {
+  top: 8px;
 }
 
 header img {
@@ -101,7 +171,7 @@ header img {
 }
 .hero-section .hero-content .hero-highlight {
   font-size: 1.4em;
-  color: #4a90e2;
+  color: #4A62AB;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -128,13 +198,13 @@ header img {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0px 10px 35px;
+  padding: 0px 10px 50px;
   max-width: 1000px;
   width: 100%;
   text-align: center;
 }
 .tarjetas-diferencia .tarjeta-grande p {
-  background-color: rgb(180, 214, 236);
+  background-color: #E4DFD8;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 5px;
@@ -184,17 +254,18 @@ header img {
   object-fit: cover;
 }
 .agendatuclase #botonagenda {
-  background-color: #4a90e2;
+  background-color: #4A62AB;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1em;
+  margin-top: 20px;
   cursor: pointer;
   transition: background-color 0.5s;
 }
 .agendatuclase #botonagenda:hover {
-  background-color: rgb(34.3857142857, 117.3857142857, 214.6142857143);
+  background-color: rgb(58.5959183673, 77.6, 135.4040816327);
 }
 
 @media (max-width: 768px) {
@@ -216,6 +287,7 @@ header img {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 .sobremi__texto {
   max-width: 800px;
@@ -245,15 +317,15 @@ header img {
   font-size: 1.2em;
   color: #333;
   line-height: 1.6;
-  text-align: justify;
+  text-align: center;
   margin: 0; /* Eliminar márgenes de los párrafos */
-  padding: 0 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
+  padding: 10px 10px 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
 }
 
 .resenass {
   text-align: center;
-  padding: 40px 20px 5px;
-  background-color: #f8f8f8;
+  padding: 40px 20px 50px;
+  background-color: #E4DFD8;
 }
 .resenass h2 {
   font-size: 2em;
@@ -276,8 +348,8 @@ p {
 }
 
 .formacion {
-  background-color: rgb(180, 214, 236);
-  padding: 20px 20px;
+  background-color: #E4DFD8;
+  padding: 20px 20px 50px;
   text-align: center;
 }
 .formacion h2 {
@@ -306,35 +378,65 @@ p {
   text-align: center;
 }
 
-.nivel-clases {
-  background-color: #f4f4f4; /* Fondo suave para la caja */
-  padding: 20px; /* Espaciado dentro de la caja */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  max-width: 600px; /* Ancho máximo */
-  margin: 20px auto; /* Centrado de la caja */
+.nivel-class {
+  background-color: #E2DED7;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 4rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.nivel-clases ul {
-  list-style: none; /* Elimina los puntos de lista */
+.nivel-class h1 {
+  color: #4A62AB;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.nivel-class p {
+  color: #74744D;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nivel-class .nivel-clases {
+  list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Muestra los elementos de la lista en línea */
-  justify-content: space-between; /* Espacio equitativo entre los elementos */
+  /* Caja que rodea toda la lista */
 }
-.nivel-clases ul li {
-  display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
-  margin-right: 20px; /* Espacio entre los elementos */
+.nivel-class .nivel-clases .nivel-clases-container {
+  background-color: #DCD7CF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.nivel-clases ul li .nivel {
-  font-weight: bold; /* Negrita */
-  text-decoration: underline; /* Subrayado */
-  color: #2C3E50; /* Color del texto */
-  transition: color 0.3s, transform 0.3s; /* Efecto suave al pasar el ratón */
+.nivel-class .nivel-clases li {
+  background-color: #efefef;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.nivel-clases ul li .nivel:hover {
-  color: #3498db; /* Cambio de color al pasar el ratón */
-  transform: scale(1.1); /* Aumento sutil del tamaño */
+.nivel-class .nivel-clases li:hover {
+  background-color: #B8B6B4;
+  transform: translateY(-5px);
+}
+.nivel-class .nivel-clases li p {
+  color: #4A62AB;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.nivel-class .nivel-clases li .nivel {
+  font-weight: bold;
+  color: #4A62AB;
 }
 
 .cardsection {
@@ -447,7 +549,7 @@ p {
   font-size: 14px;
 }
 .formulario .tabla input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #74744D;
   color: white;
   border: none;
   cursor: pointer;
@@ -457,7 +559,7 @@ p {
   text-transform: uppercase;
 }
 .formulario .tabla input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #5F5F48;
 }
 
 /* Responsividad */

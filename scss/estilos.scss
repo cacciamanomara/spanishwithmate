@@ -5,17 +5,16 @@
 @use "./components/footer";
 @use "./base/queriers";
 
-
 // Variables
 
-$primary-color: #4a90e2; // Color principal (azul)
+$primary-color: #4A62AB; // Color principal (azul)
 $secondary-color: #ebeaea; // Fondo general
 $text-color: #333; // Color de texto general
 $light-text-color: #555; // Texto más claro
 $dark-text-color: #111; // Texto oscuro
 $background-light: #f8f8f8; // Fondo claro
 $resenas-bg: #f9f9f9; // Fondo de la sección reseñas
-$formacion-bg: rgb(180, 214, 236); // Fondo para certificaciones y formación
+$formacion-bg: #CDBF94; // Fondo para certificaciones y formación
 
 // **Sombras**
 $shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra general
@@ -50,8 +49,93 @@ h1, h2, h3, p {
 
 h1 { color: #0A2436; margin: 50px 0 30px; background-color: gainsboro; }
 h2 { color: #214A55; margin: 50px 0 10px; }
-h3 { color: #976F25; margin: 40px 0 45px; }
+h3 { color: #74744D; margin: 40px 0 45px; }
 p { color: #1F3136; max-width: 800px; padding: 5px 20px; }
+
+// Estilo del navbar principal
+.navbar {
+  background-color: #E2DED7; // Fondo gris claro
+  padding: 1rem;
+  border-radius: 8px; // Bordes redondeados
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave
+
+  .nav-link {
+    color: #4A62AB; // Azul elegante para los enlaces
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 5px; // Bordes redondeados en los enlaces
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      color: #E4DFD8; // Blanco cálido en hover
+      background-color: #4A62AB; // Fondo azul en hover
+    }
+
+    &.active {
+      color: #E4DFD8; // Blanco cálido para el texto
+      background-color: #4A62AB; // Fondo azul consistente con el navbar
+      border-bottom: 2px solid #E4DFD8; // Línea sutil en blanco para destacarse
+    }
+  }
+
+  // Dropdown menu
+  .dropdown-menu {
+    background-color: #E2DED7; // Fondo igual al navbar
+    border: none;
+    border-radius: 8px; // Bordes redondeados
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave
+
+    .dropdown-item {
+      color: #4A62AB; // Azul para las opciones
+      padding: 0.5rem 1rem;
+      border-radius: 5px; // Bordes redondeados
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #4A62AB; // Fondo azul
+        color: #E4DFD8; // Blanco cálido
+      }
+    }
+  }
+
+  // Botón toggler sin el gradient
+  .navbar-toggler {
+    background-color: #DCD7CF; // Gris claro
+    border: none;
+    padding: 5px;
+    border-radius: 5px; // Bordes redondeados
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra ligera
+
+    .navbar-toggler-icon {
+      background-image: none; // Elimina el gradient
+      background-color: #4A62AB; // Color sólido para las líneas del ícono
+      width: 24px;
+      height: 2px;
+      display: inline-block;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        background-color: #4A62AB;
+        width: 24px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+  }
+}
 
 // **Header**
 header img {
@@ -65,7 +149,6 @@ header img {
   padding: 100px 50px;
   text-align: center;
   
-
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -78,9 +161,7 @@ header img {
       width: 100%;
       max-width: 850px;
       height: auto;
-      
     }
-
     .hero-title {
       font-size: 2em;  /* Usamos un tamaño de fuente relativo */
       font-weight: bold;
@@ -114,8 +195,6 @@ header img {
       }
     }
     
-    
-
     .hero-subtitle {
       font-size: 1.8em;
       color: $light-text-color;
@@ -130,8 +209,6 @@ header img {
     
     }
     
-    
-
     .hero-card {
       background-color: #fff;
       box-shadow: $shadow;
@@ -158,13 +235,13 @@ header img {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: $shadow;
-    padding: 0px 10px 35px ;
+    padding: 0px 10px 50px ;
     max-width: 1000px;
     width: 100%;
     text-align: center;
 
     p { 
-      background-color: rgb(180, 214, 236);
+      background-color: #E4DFD8;
       border-radius: 12px;
       box-shadow: $shadow;
       padding: 5px;
@@ -227,6 +304,7 @@ header img {
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1em;
+    margin-top: 20px;
     cursor: pointer;
     transition: background-color 0.5s;
 
@@ -235,8 +313,6 @@ header img {
     }
   }
 }
-
-
 
 // **Media Queries**
 @media (max-width: 768px) {
@@ -262,6 +338,7 @@ header img {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 
   &__texto {
     max-width: 800px;
@@ -293,20 +370,17 @@ header img {
       font-size: 1.2em;
       color: $text-color;
       line-height: 1.6;
-      text-align: justify;
+      text-align: center;
       margin: 0; /* Eliminar márgenes de los párrafos */
-      padding: 0 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
+      padding: 10px 10px 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
     }
   }
 }
-
-
-
 // **Sección "Reseñas"**
 .resenass {
   text-align: center;
-  padding: 40px 20px 5px;
-  background-color: #f8f8f8;
+  padding: 40px 20px 50px;
+  background-color: #E4DFD8;
 
   h2 {
     font-size: 2em;
@@ -332,8 +406,8 @@ header img {
 
 // **Sección "Certificaciones y Formación"**
 .formacion {
-  background-color: rgb(180, 214, 236);
-  padding: 20px 20px;
+  background-color: #E4DFD8;
+  padding: 20px 20px 50px;
   text-align: center;
 
   h2 {
@@ -367,40 +441,78 @@ header img {
 }
 // SERVICIOS
 
-.nivel-clases {
-  background-color: #f4f4f4;  /* Fondo suave para la caja */
-  padding: 20px;  /* Espaciado dentro de la caja */
-  border-radius: 10px;  /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra ligera */
-  max-width: 600px;  /* Ancho máximo */
-  margin: 20px auto;  /* Centrado de la caja */
+// Estilos para la sección "Niveles y tipos de clases"
+.nivel-class {
+  background-color: #E2DED7; // Fondo gris claro de la paleta
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); // Sombra más suave
+  margin-bottom: 4rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 
-  ul {
-    list-style: none;  /* Elimina los puntos de lista */
+  h1 {
+    color: #4A62AB; // Color azul para el título
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: #74744D; // Gris suave para el texto
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nivel-clases {
+    list-style: none; // Eliminar puntos de la lista
     padding: 0;
     margin: 0;
-    display: flex;  /* Muestra los elementos de la lista en línea */
-    justify-content: space-between;  /* Espacio equitativo entre los elementos */
     
+    /* Caja que rodea toda la lista */
+    .nivel-clases-container {
+      background-color: #DCD7CF; // Fondo gris claro para la caja de la lista
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Sombra sutil
+    }
+
     li {
-      display: flex;
-      align-items: center;  /* Alinea verticalmente los elementos */
-      margin-right: 20px;  /* Espacio entre los elementos */
-      
-      .nivel {
-        font-weight: bold;  /* Negrita */
-        text-decoration: underline;  /* Subrayado */
-        color: #2C3E50;  /* Color del texto */
-        transition: color 0.3s, transform 0.3s;  /* Efecto suave al pasar el ratón */
+      background-color: #efefef; // Fondo claro para cada nivel
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Sombra para dar profundidad
+
+      &:hover {
+        background-color: #B8B6B4; // Cambio de color al pasar el cursor
+        transform: translateY(-5px); // Efecto de elevación
       }
 
-      .nivel:hover {
-        color: #3498db;  /* Cambio de color al pasar el ratón */
-        transform: scale(1.1);  /* Aumento sutil del tamaño */
+      p {
+        color: #4A62AB; // Texto azul para los detalles
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      .nivel {
+        font-weight: bold;
+        color: #4A62AB; // Resalta el nombre de cada nivel
       }
     }
   }
 }
+
+
+
 
 .cardsection {
   display: flex;
@@ -487,9 +599,7 @@ header img {
   }
 }
 
-
 //CONTACTO
-
 .formulario {
   display: flex;
   align-items: center;
@@ -524,7 +634,7 @@ header img {
     }
 
     input[type="submit"] {
-      background-color: #4CAF50;
+      background-color: #74744D;
       color: white;
       border: none;
       cursor: pointer;
@@ -534,7 +644,7 @@ header img {
       text-transform: uppercase;
 
       &:hover {
-        background-color: #45a049;
+        background-color: #5F5F48;
       }
     }
   }
