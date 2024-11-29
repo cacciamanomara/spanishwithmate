@@ -1,0 +1,578 @@
+@use "./base/funcionalidades";
+@use "./base/generales";
+@use "./components/header";
+@use "./components/main";
+@use "./components/footer";
+@use "./base/queriers";
+
+
+// Variables
+
+$primary-color: #4a90e2; // Color principal (azul)
+$secondary-color: #ebeaea; // Fondo general
+$text-color: #333; // Color de texto general
+$light-text-color: #555; // Texto más claro
+$dark-text-color: #111; // Texto oscuro
+$background-light: #f8f8f8; // Fondo claro
+$resenas-bg: #f9f9f9; // Fondo de la sección reseñas
+$formacion-bg: rgb(180, 214, 236); // Fondo para certificaciones y formación
+
+// **Sombras**
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra general
+$img-shadow: $shadow; // Sombra específica para imágenes
+
+// **Tipografía**
+$font-stack: 'Pavanam', sans-serif; // Fuente principal
+
+// **Otros**
+$sobremi-bg: $background-light; // Fondo específico para la sección "Sobre mí"
+
+// Reset y body
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack;
+  background-color: $background-light;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+// **Estilos Comunes para Encabezados**
+h1, h2, h3, p {
+  text-align: center;
+  font-variant: slashed-zero;
+  margin: 0 auto;
+}
+
+h1 { color: #0A2436; margin: 50px 0 30px; background-color: gainsboro; }
+h2 { color: #214A55; margin: 50px 0 10px; }
+h3 { color: #976F25; margin: 40px 0 45px; }
+p { color: #1F3136; max-width: 800px; padding: 5px 20px; }
+
+// **Header**
+header img {
+  width: 100%;
+  height: auto;
+}
+
+// **Hero Section**
+.hero-section {
+  background-color: $background-light;
+  padding: 100px 50px;
+  text-align: center;
+  
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      
+    }
+
+    .hero-title {
+      font-size: 2em;
+      font-weight: bold;
+      color: $light-text-color;
+      margin-bottom: 15px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: $shadow;
+      padding: 50px;
+      text-align: center;
+      width: 500px;
+      height: 150px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8em;
+      color: $light-text-color;
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight {
+      font-size: 1.4em;
+      color: $primary-color;
+      font-weight: bold;
+      margin-bottom: 20px;
+    
+    }
+    
+    
+
+    .hero-card {
+      background-color: #fff;
+      box-shadow: $shadow;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 550px;
+      text-align: center;
+    }
+  }
+}
+
+// **Tarjetas y Secciones**
+.tarjetas-diferencia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 20px;
+  background-color: $secondary-color;
+
+  .tarjeta-grande { 
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: $shadow;
+    padding: 0px 10px 35px ;
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+
+    p { 
+      background-color: rgb(180, 214, 236);
+      border-radius: 12px;
+      box-shadow: $shadow;
+      padding: 5px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .titulo-eleccion {
+    font-size: 1.6em;
+    color: $text-color;
+    margin-top: 10px;
+  }
+
+  .tarjetas-eleccion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: $shadow;
+    padding: 15px 20px;
+
+    .item-tarjeta {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: $shadow;
+      padding: 15px 20px;
+      color: $light-text-color;
+      max-width: 250px;
+      flex: 1 1 220px;
+      text-align: center;
+    }
+  }
+}
+
+// **Agenda**
+.agendatuclase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+
+  img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #botonagenda {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+
+
+// **Media Queries**
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 20px;
+  }
+
+  .tarjetas-diferencia {
+    gap: 15px;
+  }
+
+  .tarjetas-eleccion, .tarjeta-grande .hero-card {
+    width: 100%;
+  }
+}
+
+// **Sección "Sobre mí"**
+.sobremi {
+  background-color: $resenas-bg;
+  padding: 10px 20px; /* Reducir más el padding superior e inferior */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  &__texto {
+    max-width: 800px;
+    margin: 0 auto; /* Eliminar márgenes innecesarios */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Reducir el gap entre elementos */
+    background-color: #fff;
+    padding: 15px; /* Reducir el padding interno */
+    border-radius: 15px;
+    box-shadow: $shadow;
+
+    .sobremi__img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px; /* Ajustar espacio debajo de la imagen */
+      box-shadow: $shadow;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .sobremi__img:hover {
+      transform: scale(1.1);
+    }
+
+    .sobremi__p {
+      font-size: 1.2em;
+      color: $text-color;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 0; /* Eliminar márgenes de los párrafos */
+      padding: 0 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
+    }
+  }
+}
+
+
+
+// **Sección "Reseñas"**
+.resenass {
+  text-align: center;
+  padding: 40px 20px 5px;
+  background-color: #f8f8f8;
+
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.4s ease; // Transición para todos los cambios de estilo
+
+    &:hover {
+      color: #4a90e2; // Cambio de color
+      transform: scale(1.1); // Aumento de tamaño
+      letter-spacing: 2px; // Espaciado de las letras
+    }
+  }
+}
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: $light-text-color;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+// **Sección "Certificaciones y Formación"**
+.formacion {
+  background-color: rgb(180, 214, 236);
+  padding: 20px 20px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: 30px;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    img {
+      max-width: 300px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: $light-text-color;
+      line-height: 1.5;
+      text-align: center;
+    }
+  }
+}
+// SERVICIOS
+
+.nivel-clases {
+  background-color: #f4f4f4;  /* Fondo suave para la caja */
+  padding: 20px;  /* Espaciado dentro de la caja */
+  border-radius: 10px;  /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra ligera */
+  max-width: 600px;  /* Ancho máximo */
+  margin: 20px auto;  /* Centrado de la caja */
+
+  ul {
+    list-style: none;  /* Elimina los puntos de lista */
+    padding: 0;
+    margin: 0;
+    display: flex;  /* Muestra los elementos de la lista en línea */
+    justify-content: space-between;  /* Espacio equitativo entre los elementos */
+    
+    li {
+      display: flex;
+      align-items: center;  /* Alinea verticalmente los elementos */
+      margin-right: 20px;  /* Espacio entre los elementos */
+      
+      .nivel {
+        font-weight: bold;  /* Negrita */
+        text-decoration: underline;  /* Subrayado */
+        color: #2C3E50;  /* Color del texto */
+        transition: color 0.3s, transform 0.3s;  /* Efecto suave al pasar el ratón */
+      }
+
+      .nivel:hover {
+        color: #3498db;  /* Cambio de color al pasar el ratón */
+        transform: scale(1.1);  /* Aumento sutil del tamaño */
+      }
+    }
+  }
+}
+
+.cardsection {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas */
+  flex-wrap: wrap; /* Permite que las tarjetas se acomoden en filas */
+  width: 100%;
+  padding: 20px; /* Un poco de espacio alrededor de las tarjetas */
+
+  .card {
+    display: grid;
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+    max-width: 400px; /* La tarjeta no puede ser más ancha que 650px */
+    height: auto; /* La altura será proporcional al contenido */
+    background-color: #cccdbd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 25px #4f4f59;
+    padding: 0;
+
+    img {width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+      height: auto; /* La altura es proporcional al ancho */
+      object-fit: cover; /* Mantiene la imagen cubriendo el área sin distorsionar */}
+}
+}
+.faq {
+  margin-bottom: 15px;
+  text-align: center;
+
+  .faq-toggle {
+    display: none;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid rgb(119, 119, 173);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    width: 100%; /* Para asegurar que ocupe todo el ancho disponible */
+
+    &::before {
+      content: "➤"; /* Añadimos un ícono visual como marcador */
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #536e86;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: #e0e0e0;
+      border-color: rgb(74, 74, 152);
+    }
+
+    /* Cambia el ícono cuando la pregunta está seleccionada */
+    &::before {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  /* Mostrar la respuesta cuando el checkbox esté marcado */
+  .faq-toggle:checked + .faq-question + .faq-answer {
+    display: block;
+  }
+}
+
+
+//CONTACTO
+
+.formulario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
+
+  .tabla {
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .formulario {
+    padding: 10px;  /* Menos padding en el formulario para adaptarse a pantallas pequeñas */
+
+    .tabla {
+      padding: 20px;  /* Menos padding en pantallas más pequeñas */
+      box-shadow: none;  /* Menos sombra para pantallas pequeñas */
+    }
+
+    .tabla input,
+    .tabla select {
+      font-size: 16px;  /* Aumentar el tamaño de fuente en pantallas pequeñas para mejor legibilidad */
+    }
+  }
+}
+
+// **Footer**
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-light;
+  color: $text-color;
+  padding: 20px;
+  gap: 20px;
+  text-align: center;
+
+  .insta {
+    display: flex;
+    gap: 10px;
+
+    a img {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .banner-footer img {
+    width: 160px;
+    height: auto;
+  }
+
+  section iframe {
+    width: 120px;
+    height: 60px;
+    margin-top: 0;
+  }
+}
+
+
+

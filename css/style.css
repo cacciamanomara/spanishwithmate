@@ -575,80 +575,6 @@ padding: 5px;
 }
 
 
-
-/*    FOOTER   */
-
-footer {
-    background-color: #f8f8f8;
-    width: 100%;
-    padding: 15px 40px; /* Incremento ligero del padding */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px; /* Altura ligeramente aumentada */
-    box-sizing: border-box;
-    margin-top: 40px;
-}
-
-.insta {
-    display: flex;
-    gap: 15px;
-}
-
-.insta img {
-    width: 20px;
-    height: 20px;
-}
-
-.banner-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-.banner-footer img {
-    width: 200px; /* Logo ajustado al tamaño del banner horizontal */
-    height: auto;
-}
-
-footer iframe {
-    width: 150px;
-    height: 80px;
-    border-radius: 4px;
-}
-
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        gap: 10px;
-        padding: 20px;
-    }
-
-    .insta {
-        justify-content: center;
-    }
-
-    .insta img {
-        width: 18px;
-        height: 18px;
-    }
-
-    .banner-footer img {
-        width: 160px;
-    }
-
-    footer iframe {
-        width: 120px;
-        height: 60px;
-        margin-top: 5px;
-    }
-}
-
-
 /** preguntas frecuentes **/
 
 .faq {
@@ -711,6 +637,74 @@ footer iframe {
 /* Cambia el ícono cuando la pregunta está seleccionada */
 .faq-toggle:checked + .faq-question::before {
     transform: translateY(-50%) rotate(90deg); /* Gira el ícono para mostrar el estado expandido */
+}
+
+
+
+
+
+/*    FOOTER   */
+
+footer {
+
+}
+
+.insta {
+    display: flex;
+    gap: 15px;
+}
+
+.insta img {
+    width: 20px;
+    height: 20px;
+}
+
+.banner-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.banner-footer img {
+    width: 200px; /* Logo ajustado al tamaño del banner horizontal */
+    height: auto;
+}
+
+footer iframe {
+    width: 150px;
+    height: 80px;
+    border-radius: 4px;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .insta {
+        justify-content: center;
+    }
+
+    .insta img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .banner-footer img {
+        width: 160px;
+    }
+
+    footer iframe {
+        width: 120px;
+        height: 60px;
+        margin-top: 5px;
+    }
 }
 
 
