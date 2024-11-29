@@ -557,7 +557,6 @@ header img {
   }
 }
 
-// **Footer**
 footer {
   display: flex;
   justify-content: center;
@@ -567,10 +566,14 @@ footer {
   padding: 20px;
   gap: 20px;
   text-align: center;
+  flex-wrap: wrap; // Permite que los elementos se ajusten en múltiples filas
 
+  // Estilo para la sección de Instagram
   .insta {
     display: flex;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 
     a img {
       width: 20px;
@@ -583,17 +586,52 @@ footer {
     }
   }
 
+  // Banner del footer
   .banner-footer img {
     width: 160px;
     height: auto;
   }
 
+  // Estilo para los iframes
   section iframe {
     width: 120px;
     height: 60px;
     margin-top: 0;
   }
+
+  // Media Query para pantallas pequeñas (móviles)
+  @media (max-width: 768px) {
+    flex-direction: column; // Pone todo en una columna
+    gap: 15px; // Reduce el espacio entre los elementos
+
+    .insta {
+      gap: 15px; // Espacio mayor entre los íconos de Instagram
+    }
+
+    .banner-footer img {
+      width: 120px; // Reduce el tamaño del banner en pantallas pequeñas
+    }
+
+    section iframe {
+      width: 100px; // Hace más pequeño el iframe en pantallas pequeñas
+      height: 50px; // Ajusta la altura
+    }
+  }
+
+  // Media Query para pantallas aún más pequeñas (por ejemplo, móviles en orientación vertical)
+  @media (max-width: 480px) {
+    padding: 15px; // Reduce el padding para pantallas más pequeñas
+    .insta a img {
+      width: 18px; // Reduce el tamaño de los íconos de Instagram
+      height: 18px;
+    }
+
+    .banner-footer img {
+      width: 100px; // Hace aún más pequeño el banner
+    }
+  }
 }
+
 
 
 

@@ -483,10 +483,13 @@ footer {
   padding: 20px;
   gap: 20px;
   text-align: center;
+  flex-wrap: wrap;
 }
 footer .insta {
   display: flex;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 footer .insta a img {
   width: 20px;
@@ -504,6 +507,34 @@ footer section iframe {
   width: 120px;
   height: 60px;
   margin-top: 0;
+}
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  footer .insta {
+    gap: 15px;
+  }
+  footer .banner-footer img {
+    width: 120px;
+  }
+  footer section iframe {
+    width: 100px;
+    height: 50px;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 15px;
+  }
+  footer .insta a img {
+    width: 18px;
+    height: 18px;
+  }
+  footer .banner-footer img {
+    width: 100px;
+  }
 }
 
 /*# sourceMappingURL=estilos.css.map */
