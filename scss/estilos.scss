@@ -82,18 +82,39 @@ header img {
     }
 
     .hero-title {
-      font-size: 2em;
+      font-size: 2em;  /* Usamos un tamaño de fuente relativo */
       font-weight: bold;
       color: $light-text-color;
       margin-bottom: 15px;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: $shadow;
-      padding: 50px;
+      padding: 20px;  /* Padding fijo para que no crezca demasiado */
       text-align: center;
-      width: 500px;
-      height: 150px;
+      width: 100%;  /* Ocupar todo el ancho disponible */
+      max-width: 500px;  /* Limitar el ancho máximo */
+      height: auto;  /* Ajustar altura según el contenido */
     }
+    
+    /* Media Query para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 4vw;  /* El tamaño de la fuente cambia en pantallas pequeñas */
+        padding: 5vw;    /* El padding se ajusta para pantallas más pequeñas */
+        width: 80%;      /* El ancho ocupa el 80% en pantallas más pequeñas */
+      }
+    }
+    
+    /* Media Query para dispositivos móviles más pequeños */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 6vw;  /* Aumenta el tamaño de la fuente en dispositivos móviles */
+        padding: 10vw;   /* Ajusta el padding de manera flexible */
+        width: 100%;     /* Ocupa el 100% del ancho disponible */
+      }
+    }
+    
+    
 
     .hero-subtitle {
       font-size: 1.8em;
