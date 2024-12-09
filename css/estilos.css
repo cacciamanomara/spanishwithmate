@@ -22,7 +22,6 @@ h1, h2, h3, p {
 h1 {
   color: #0A2436;
   margin: 50px 0 30px;
-  background-color: gainsboro;
 }
 
 h2 {
@@ -41,11 +40,40 @@ p {
   padding: 5px 20px;
 }
 
+.hero-section .hero-content .hero-card, .hero-section .hero-content .hero-title {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.hero-section .hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-section .hero-content .hero-title {
+  font-size: 2em;
+}
+@media (max-width: 768px) {
+  .hero-section .hero-content .hero-title {
+    font-size: 4vw;
+  }
+}
+@media (max-width: 480px) {
+  .hero-section .hero-content .hero-title {
+    font-size: 6vw;
+  }
+}
+
 .navbar {
   background-color: #E2DED7;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
 }
 .navbar .nav-link {
   color: #4A62AB;
@@ -53,7 +81,8 @@ p {
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.3s ease;
+  margin-right: 3px;
 }
 .navbar .nav-link:hover {
   color: #E4DFD8;
@@ -72,9 +101,9 @@ p {
 }
 .navbar .dropdown-menu .dropdown-item {
   color: #4A62AB;
-  padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin-bottom: 3px;
 }
 .navbar .dropdown-menu .dropdown-item:hover {
   background-color: #4A62AB;
@@ -88,7 +117,6 @@ p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar .navbar-toggler .navbar-toggler-icon {
-  background-image: none;
   background-color: #4A62AB;
   width: 24px;
   height: 2px;
@@ -111,25 +139,14 @@ p {
   top: 8px;
 }
 
-header img {
-  width: 100%;
-  height: auto;
-}
-
 .hero-section {
   background-color: #f8f8f8;
   padding: 100px 50px;
   text-align: center;
 }
 .hero-section .hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   max-width: 800px;
   margin: 0 auto;
-  /* Media Query para pantallas más pequeñas */
-  /* Media Query para dispositivos móviles más pequeños */
 }
 .hero-section .hero-content img {
   width: 100%;
@@ -137,32 +154,11 @@ header img {
   height: auto;
 }
 .hero-section .hero-content .hero-title {
-  font-size: 2em; /* Usamos un tamaño de fuente relativo */
   font-weight: bold;
   color: #555;
   margin-bottom: 15px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* Padding fijo para que no crezca demasiado */
-  text-align: center;
-  width: 100%; /* Ocupar todo el ancho disponible */
-  max-width: 500px; /* Limitar el ancho máximo */
-  height: auto; /* Ajustar altura según el contenido */
-}
-@media (max-width: 768px) {
-  .hero-section .hero-content .hero-title {
-    font-size: 4vw; /* El tamaño de la fuente cambia en pantallas pequeñas */
-    padding: 5vw; /* El padding se ajusta para pantallas más pequeñas */
-    width: 80%; /* El ancho ocupa el 80% en pantallas más pequeñas */
-  }
-}
-@media (max-width: 480px) {
-  .hero-section .hero-content .hero-title {
-    font-size: 6vw; /* Aumenta el tamaño de la fuente en dispositivos móviles */
-    padding: 10vw; /* Ajusta el padding de manera flexible */
-    width: 100%; /* Ocupa el 100% del ancho disponible */
-  }
+  max-width: 500px;
 }
 .hero-section .hero-content .hero-subtitle {
   font-size: 1.8em;
@@ -176,29 +172,25 @@ header img {
   margin-bottom: 20px;
 }
 .hero-section .hero-content .hero-card {
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  padding: 20px;
   margin-top: 20px;
-  width: 100%;
   max-width: 550px;
-  text-align: center;
 }
 
 .tarjetas-diferencia {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 20px 20px;
+  padding: 20px;
   background-color: #ebeaea;
 }
 .tarjetas-diferencia .tarjeta-grande {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0px 10px 50px;
+  padding: 10px 10px 50px 50px;
   max-width: 1000px;
   width: 100%;
   text-align: center;
@@ -207,10 +199,10 @@ header img {
   background-color: #E4DFD8;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 30px;
   max-width: 600px;
   width: 100%;
-  text-align: center;
 }
 .tarjetas-diferencia .titulo-eleccion {
   font-size: 1.6em;
@@ -219,8 +211,10 @@ header img {
 }
 .tarjetas-diferencia .tarjetas-eleccion {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   max-width: 800px;
   border-radius: 10px;
@@ -241,6 +235,8 @@ header img {
 .agendatuclase {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
@@ -260,9 +256,9 @@ header img {
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1em;
-  margin-top: 20px;
   cursor: pointer;
   transition: background-color 0.5s;
+  margin-top: 20px;
 }
 .agendatuclase #botonagenda:hover {
   background-color: rgb(58.5959183673, 77.6, 135.4040816327);
@@ -281,9 +277,10 @@ header img {
 }
 .sobremi {
   background-color: #f9f9f9;
-  padding: 10px 20px; /* Reducir más el padding superior e inferior */
-  text-align: center;
+  padding: 10px 20px;
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
@@ -291,13 +288,15 @@ header img {
 }
 .sobremi__texto {
   max-width: 800px;
-  margin: 0 auto; /* Eliminar márgenes innecesarios */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
-  gap: 10px; /* Reducir el gap entre elementos */
+  gap: 10px;
   background-color: #fff;
-  padding: 15px; /* Reducir el padding interno */
+  padding: 15px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -305,7 +304,7 @@ header img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  margin-bottom: 10px; /* Ajustar espacio debajo de la imagen */
+  margin-bottom: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -318,8 +317,8 @@ header img {
   color: #333;
   line-height: 1.6;
   text-align: center;
-  margin: 0; /* Eliminar márgenes de los párrafos */
-  padding: 10px 10px 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
+  margin: 0;
+  padding: 10px 10px 10px;
 }
 
 .resenass {
@@ -338,8 +337,7 @@ header img {
   transform: scale(1.1);
   letter-spacing: 2px;
 }
-
-p {
+.resenass p {
   margin-top: 10px;
   font-size: 1.2em;
   color: #555;
@@ -580,7 +578,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f8;
+  background-color: white;
   color: #333;
   padding: 20px;
   gap: 20px;

@@ -1,32 +1,59 @@
-@use "./base/funcionalidades";
-@use "./base/generales";
-@use "./components/header";
-@use "./components/main";
-@use "./components/footer";
-@use "./base/queriers";
+@import "./base/funcionalidades";
+@import "./base/generales";
+@import "./components/header";
+@import "./components/main";
+@import "./components/footer";
+@import "./base/queriers";
 
 // Variables
+$primary-color: #4A62AB;
+$secondary-color: #ebeaea;
+$text-color: #333;
+$light-text-color: #555;
+$dark-text-color: #111;
+$background-light: #f8f8f8;
+$resenas-bg: #f9f9f9;
+$formacion-bg: #CDBF94;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$font-stack: 'Pavanam', sans-serif;
+$sobremi-bg: $background-light;
 
-$primary-color: #4A62AB; // Color principal (azul)
-$secondary-color: #ebeaea; // Fondo general
-$text-color: #333; // Color de texto general
-$light-text-color: #555; // Texto más claro
-$dark-text-color: #111; // Texto oscuro
-$background-light: #f8f8f8; // Fondo claro
-$resenas-bg: #f9f9f9; // Fondo de la sección reseñas
-$formacion-bg: #CDBF94; // Fondo para certificaciones y formación
+// **Mixins**
+@mixin text-center {
+  text-align: center;
+}
 
-// **Sombras**
-$shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra general
-$img-shadow: $shadow; // Sombra específica para imágenes
+@mixin box-shadow($color: rgba(0, 0, 0, 0.1), $offset-x: 0, $offset-y: 4px, $blur-radius: 6px) {
+  box-shadow: $offset-x $offset-y $blur-radius $color;
+}
 
-// **Tipografía**
-$font-stack: 'Pavanam', sans-serif; // Fuente principal
+@mixin border-radius($radius: 8px) {
+  border-radius: $radius;
+}
 
-// **Otros**
-$sobremi-bg: $background-light; // Fondo específico para la sección "Sobre mí"
+@mixin transition($properties: all, $duration: 0.3s, $ease: ease) {
+  transition: $properties $duration $ease;
+}
 
-// Reset y body
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive-text($size-desktop: 2em, $size-mobile: 4vw) {
+  font-size: $size-desktop;
+
+  @media (max-width: 768px) {
+    font-size: $size-mobile;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 6vw;
+  }
+}
+
+// **Global Styles**
 * {
   margin: 0;
   padding: 0;
@@ -40,76 +67,108 @@ body {
   line-height: 1.6;
 }
 
-// **Estilos Comunes para Encabezados**
+// **Common Styles**
 h1, h2, h3, p {
-  text-align: center;
+  @include text-center;
   font-variant: slashed-zero;
   margin: 0 auto;
 }
 
-h1 { color: #0A2436; margin: 50px 0 30px; background-color: gainsboro; }
-h2 { color: #214A55; margin: 50px 0 10px; }
-h3 { color: #74744D; margin: 40px 0 45px; }
-p { color: #1F3136; max-width: 800px; padding: 5px 20px; }
+h1 {
+  color: #0A2436;
+  margin: 50px 0 30px;
+}
 
-// Estilo del navbar principal
+h2 {
+  color: #214A55;
+  margin: 50px 0 10px;
+}
+
+h3 {
+  color: #74744D;
+  margin: 40px 0 45px;
+}
+
+p {
+  color: #1F3136;
+  max-width: 800px;
+  padding: 5px 20px;
+}
+
+// **Extends**
+%card-style {
+  background-color: #fff;
+  @include box-shadow();
+  @include border-radius(10px);
+  padding: 20px;
+}
+
+%flex-column-center {
+  @include flex-center;
+  flex-direction: column;
+}
+
+%text-responsive {
+  @include responsive-text(2em, 4vw);
+}
+
+// **Navbar**
 .navbar {
-  background-color: #E2DED7; // Fondo gris claro
+  background-color: #E2DED7;
   padding: 1rem;
-  border-radius: 8px; // Bordes redondeados
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave
+  @include border-radius();
+  @include box-shadow();
+  margin-bottom: 50px;
 
   .nav-link {
-    color: #4A62AB; // Azul elegante para los enlaces
+    color: $primary-color;
     font-weight: 600;
     text-transform: uppercase;
     padding: 0.5rem 1rem;
-    border-radius: 5px; // Bordes redondeados en los enlaces
-    transition: color 0.3s ease, background-color 0.3s ease;
+    @include border-radius(5px);
+    @include transition(color, 0.3s);
+    margin-right: 3px;
 
     &:hover {
-      color: #E4DFD8; // Blanco cálido en hover
-      background-color: #4A62AB; // Fondo azul en hover
+      color: #E4DFD8;
+      background-color: $primary-color;
     }
 
     &.active {
-      color: #E4DFD8; // Blanco cálido para el texto
-      background-color: #4A62AB; // Fondo azul consistente con el navbar
-      border-bottom: 2px solid #E4DFD8; // Línea sutil en blanco para destacarse
+      color: #E4DFD8;
+      background-color: $primary-color;
+      border-bottom: 2px solid #E4DFD8;
     }
   }
 
-  // Dropdown menu
   .dropdown-menu {
-    background-color: #E2DED7; // Fondo igual al navbar
+    background-color: #E2DED7;
     border: none;
-    border-radius: 8px; // Bordes redondeados
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra suave
+    @include border-radius();
+    @include box-shadow();
 
     .dropdown-item {
-      color: #4A62AB; // Azul para las opciones
-      padding: 0.5rem 1rem;
-      border-radius: 5px; // Bordes redondeados
-      transition: background-color 0.3s ease, color 0.3s ease;
-
+      color: $primary-color;
+      @include border-radius(5px);
+      @include transition(background-color, 0.3s);
+      margin-bottom: 3px;
+    
       &:hover {
-        background-color: #4A62AB; // Fondo azul
-        color: #E4DFD8; // Blanco cálido
+        background-color: $primary-color;
+        color: #E4DFD8;
       }
     }
   }
 
-  // Botón toggler sin el gradient
   .navbar-toggler {
-    background-color: #DCD7CF; // Gris claro
+    background-color: #DCD7CF;
     border: none;
     padding: 5px;
-    border-radius: 5px; // Bordes redondeados
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra ligera
+    @include border-radius(5px);
+    @include box-shadow($offset-y: 2px, $blur-radius: 4px);
 
     .navbar-toggler-icon {
-      background-image: none; // Elimina el gradient
-      background-color: #4A62AB; // Color sólido para las líneas del ícono
+      background-color: $primary-color;
       width: 24px;
       height: 2px;
       display: inline-block;
@@ -117,13 +176,13 @@ p { color: #1F3136; max-width: 800px; padding: 5px 20px; }
 
       &::before,
       &::after {
-        content: "";
-        background-color: #4A62AB;
+        content: '';
+        background-color: $primary-color;
         width: 24px;
         height: 2px;
         position: absolute;
         left: 0;
-        transition: all 0.3s ease;
+        @include transition(all, 0.3s);
       }
 
       &::before {
@@ -137,23 +196,14 @@ p { color: #1F3136; max-width: 800px; padding: 5px 20px; }
   }
 }
 
-// **Header**
-header img {
-  width: 100%;
-  height: auto;
-}
-
 // **Hero Section**
 .hero-section {
   background-color: $background-light;
   padding: 100px 50px;
-  text-align: center;
-  
+  @include text-center;
+
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-column-center;
     max-width: 800px;
     margin: 0 auto;
 
@@ -162,39 +212,17 @@ header img {
       max-width: 850px;
       height: auto;
     }
+
     .hero-title {
-      font-size: 2em;  /* Usamos un tamaño de fuente relativo */
+      @extend %text-responsive;
       font-weight: bold;
       color: $light-text-color;
       margin-bottom: 15px;
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: $shadow;
-      padding: 20px;  /* Padding fijo para que no crezca demasiado */
-      text-align: center;
-      width: 100%;  /* Ocupar todo el ancho disponible */
-      max-width: 500px;  /* Limitar el ancho máximo */
-      height: auto;  /* Ajustar altura según el contenido */
+      @extend %card-style;
+      max-width: 500px;
     }
-    
-    /* Media Query para pantallas más pequeñas */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 4vw;  /* El tamaño de la fuente cambia en pantallas pequeñas */
-        padding: 5vw;    /* El padding se ajusta para pantallas más pequeñas */
-        width: 80%;      /* El ancho ocupa el 80% en pantallas más pequeñas */
-      }
-    }
-    
-    /* Media Query para dispositivos móviles más pequeños */
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 6vw;  /* Aumenta el tamaño de la fuente en dispositivos móviles */
-        padding: 10vw;   /* Ajusta el padding de manera flexible */
-        width: 100%;     /* Ocupa el 100% del ancho disponible */
-      }
-    }
-    
+
     .hero-subtitle {
       font-size: 1.8em;
       color: $light-text-color;
@@ -206,48 +234,75 @@ header img {
       color: $primary-color;
       font-weight: bold;
       margin-bottom: 20px;
-    
     }
-    
+
     .hero-card {
-      background-color: #fff;
-      box-shadow: $shadow;
-      border-radius: 15px;
-      padding: 20px;
+      @extend %card-style;
       margin-top: 20px;
-      width: 100%;
       max-width: 550px;
-      text-align: center;
     }
+  }
+}
+
+// **Mixins**
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin flex-center($direction: row, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-styles($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: darken($bg-color, 10%);
   }
 }
 
 // **Tarjetas y Secciones**
 .tarjetas-diferencia {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-center(column, wrap);
   gap: 20px;
-  padding: 20px 20px;
+  padding: 20px;
   background-color: $secondary-color;
 
   .tarjeta-grande { 
     background-color: #fff;
-    border-radius: 12px;
-    box-shadow: $shadow;
-    padding: 0px 10px 50px ;
+    @include border-radius(12px);
+    @include box-shadow($shadow);
+    padding: 10px 10px 50px 50px;
     max-width: 1000px;
     width: 100%;
-    text-align: center;
+    @include text-center;
 
     p { 
       background-color: #E4DFD8;
-      border-radius: 12px;
-      box-shadow: $shadow;
-      padding: 5px;
+      @include border-radius(12px);
+      @include box-shadow($shadow);
+      padding: 5px 5px 5px 5px;
+      margin-bottom: 30px;
       max-width: 600px;
       width: 100%;
-      text-align: center;
     }
   }
 
@@ -258,33 +313,29 @@ header img {
   }
 
   .tarjetas-eleccion {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include flex-center(row, wrap);
     gap: 15px;
     max-width: 800px;
-    border-radius: 10px;
-    box-shadow: $shadow;
+    @include border-radius(10px);
+    @include box-shadow($shadow);
     padding: 15px 20px;
 
     .item-tarjeta {
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: $shadow;
+      @include border-radius(10px);
+      @include box-shadow($shadow);
       padding: 15px 20px;
       color: $light-text-color;
       max-width: 250px;
       flex: 1 1 220px;
-      text-align: center;
+      @include text-center;
     }
   }
 }
 
 // **Agenda**
 .agendatuclase {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-center(column);
   text-align: center;
   padding: 20px;
 
@@ -293,24 +344,13 @@ header img {
     width: 100%;
     height: auto;
     margin: 10px auto;
-    border-radius: 50%;
+    @include border-radius(50%);
     object-fit: cover;
   }
 
   #botonagenda {
-    background-color: $primary-color;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1em;
+    @include button-styles($primary-color, #fff);
     margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.5s;
-
-    &:hover {
-      background-color: darken($primary-color, 10%);
-    }
   }
 }
 
@@ -332,32 +372,27 @@ header img {
 // **Sección "Sobre mí"**
 .sobremi {
   background-color: $resenas-bg;
-  padding: 10px 20px; /* Reducir más el padding superior e inferior */
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 10px 20px;
+  @include flex-center(column);
   margin-top: 50px;
   margin-bottom: 50px;
 
   &__texto {
     max-width: 800px;
-    margin: 0 auto; /* Eliminar márgenes innecesarios */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Reducir el gap entre elementos */
+    margin: 0 auto;
+    @include flex-center(column);
+    gap: 10px;
     background-color: #fff;
-    padding: 15px; /* Reducir el padding interno */
-    border-radius: 15px;
-    box-shadow: $shadow;
+    padding: 15px;
+    @include border-radius(15px);
+    @include box-shadow($shadow);
 
     .sobremi__img {
       width: 80px;
       height: 80px;
-      border-radius: 50%;
-      margin-bottom: 10px; /* Ajustar espacio debajo de la imagen */
-      box-shadow: $shadow;
+      @include border-radius(50%);
+      margin-bottom: 10px;
+      @include box-shadow($shadow);
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -370,15 +405,16 @@ header img {
       font-size: 1.2em;
       color: $text-color;
       line-height: 1.6;
-      text-align: center;
-      margin: 0; /* Eliminar márgenes de los párrafos */
-      padding: 10px 10px 10px; /* Añadir un pequeño padding para no pegar el texto a los bordes */
+      @include text-center;
+      margin: 0;
+      padding: 10px 10px 10px;
     }
   }
 }
+
 // **Sección "Reseñas"**
 .resenass {
-  text-align: center;
+  @include text-center;
   padding: 40px 20px 50px;
   background-color: #E4DFD8;
 
@@ -386,23 +422,24 @@ header img {
     font-size: 2em;
     font-weight: bold;
     color: #333;
-    transition: all 0.4s ease; // Transición para todos los cambios de estilo
+    transition: all 0.4s ease;
 
     &:hover {
-      color: #4a90e2; // Cambio de color
-      transform: scale(1.1); // Aumento de tamaño
-      letter-spacing: 2px; // Espaciado de las letras
+      color: #4a90e2;
+      transform: scale(1.1);
+      letter-spacing: 2px;
     }
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: $light-text-color;
+    line-height: 1.5;
+    @include text-center;
   }
 }
 
-    p {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: $light-text-color;
-      line-height: 1.5;
-      text-align: center;
-    }
 
 // **Sección "Certificaciones y Formación"**
 .formacion {
@@ -671,7 +708,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $background-light;
+  background-color: white;
   color: $text-color;
   padding: 20px;
   gap: 20px;
@@ -741,7 +778,3 @@ footer {
     }
   }
 }
-
-
-
-
